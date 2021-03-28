@@ -18,6 +18,7 @@ const width = document.getElementById("container").offsetWidth * 0.95,
 d3.dsv(";", 'assets/realisateurs_le_plus_diffuses.csv').then(function(csv) {
     var words = [];
 
+    /*
     words = csv.reduce((acc, n) => {
 
         if(acc.filter(m => m.text == n['réalisateur(s)']).length > 0 ) {
@@ -31,6 +32,9 @@ d3.dsv(";", 'assets/realisateurs_le_plus_diffuses.csv').then(function(csv) {
 
         return acc;
     }, []);
+    */
+
+
 
     /*
     csv.forEach(function(e,i) {
