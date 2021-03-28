@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Webpack App</title>
+        <style>
+            .test-width {
+                position: absolute;
+                visibility: hidden;
+                height: auto;
+                width: auto;
+                font-size: 500px;
+                white-space: nowrap;
+            }
+
+            .container {
+                min-width: 300px;
+                max-width: 720px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Nuage de mots sur le métier Réalisateur</h1>
+        <div id="container">
+        <div id="test-width" class="test-width"></div>
+        <div id="word-cloud"></div>
+        </div>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker
+                        .register('/sw.js')
+                        .then((registration) => {
+                            console.log('SW registered: ', registration);
+                        })
+                        .catch((registrationError) => {
+                            console.log('SW registration failed: ', registrationError);
+                        });
+                });
+            }
+        </script>
+    </body>
+</html>
