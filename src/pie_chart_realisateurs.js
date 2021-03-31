@@ -73,14 +73,14 @@ export default function pieChartRealisateurs() {
                 });
             }
 
-            var topValues = myWords.sort((a,b) => b-a).slice(0,5);
+            var topValues = myWords.sort((a,b) => b-a).slice(0,3);
 
-            var otherValues = myWords.sort((a,b) => b-a).slice(6,21);
+            var otherValues = myWords.sort((a,b) => b-a).slice(4,21);
 
             var sum_values_size = 0;
             var new_size = otherValues.map(function(d) { return {size:d.size}; })
 
-            for(var i=0;i<15;i++){
+            for(var i=0;i<17;i++){
                 sum_values_size += Number(otherValues[i].size);
             }
 

@@ -5,9 +5,8 @@ import 'materialize-css/dist/css/materialize.css'
 import wordCloudJournaliste from "./word-cloud-journaliste";
 import wordCloudRealisateur from './word-cloud-realisateur'
 import pieChartJournalistes from "./pie_chart_journalistes";
-import bubbleChartJournalistes from "./bubble_chart_journalistes";
 import pieChartRealisateurs from "./pie_chart_realisateurs";
-import bubbleChartRealisateurs from "./bubble-chart-realisateurs";
+import bubbleChart from "./bubble-chart";
 
 // Mon métier = Réalisateur
 // 1) le tableau en dehors du fichier (chargé)
@@ -21,5 +20,4 @@ wordCloudJournaliste();
 wordCloudRealisateur();
 pieChartRealisateurs();
 pieChartJournalistes();
-bubbleChartJournalistes();
-bubbleChartRealisateurs();
+bubbleChart();
