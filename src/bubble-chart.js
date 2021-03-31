@@ -106,9 +106,20 @@ export default function bubbleChart() {
             var allRows = rows;
 
             d3.csv("assets/realisateurs_le_plus_diffuses.csv")
-                .row( r => { return {"name": r["réalisateur(s)"], "value": r["nb. de diffusions"] } })
+                .row( r => { return {"name": r["réalisateur(s)"], "value": Number(r["nb. de diffusions"]) } })
                 .get((err, rows2) => {
-                    rows2.forEach(n => {
+
+                    let rowsReduced = rows2.reduce((acc, n) => {
+                        if(acc.filter(m => m.name == n.name).length > 0) {
+                            acc.find(m => m.name == n.name).value += n.value;
+                        } else {
+                            acc.push(n)
+                        }
+
+                        return acc;
+                    }, [])
+
+                    rowsReduced.forEach(n => {
                         allRows.push(n);
                     });
 

@@ -14,6 +14,16 @@ export default function wordCloudRealisateur() {
         .get( (err, rows) => {
             myWords = rows;
 
+            myWords = myWords.reduce((acc, n) => {
+                if(acc.filter(m => m.word == n.word).length > 0) {
+                    acc.find(m => m.word == n.word).size += n.size;
+                } else {
+                    acc.push(n)
+                }
+
+                return acc;
+            }, [])
+
             var svg = d3.select("#word-cloud-realisateurs").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)

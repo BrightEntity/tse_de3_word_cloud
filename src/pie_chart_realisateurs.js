@@ -11,6 +11,16 @@ export default function pieChartRealisateurs() {
         .get(function (err, rows) {
             myWords = rows;
 
+            myWords = myWords.reduce((acc, n) => {
+                if(acc.filter(m => m.word == n.word).length > 0) {
+                    acc.find(m => m.word == n.word).size += n.size;
+                } else {
+                    acc.push(n)
+                }
+
+                return acc;
+            }, [])
+
             var w = 530                        //width
             var h = 530                            //height
             var r = Math.min(w, h) / 2 - 10                           //radius
